@@ -10,7 +10,7 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
   const location = useLocation();
 
   const navItems = [
-    { label: "Home", path: "/", icon: "Home" },
+{ label: "Home", path: "/", icon: "Home" },
     { label: "Orders", path: "/orders", icon: "Package" },
   ];
 
@@ -39,7 +39,7 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
           )}
 
           {/* Navigation */}
-          <div className="flex items-center space-x-4">
+<div className="flex items-center space-x-4">
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-2">
               {navItems.map((item) => (
@@ -53,6 +53,22 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
                   {item.label}
                 </Button>
               ))}
+              <Button
+                variant="ghost"
+                onClick={async () => {
+                  try {
+                    const { ApperUI } = window.ApperSDK;
+                    await ApperUI.logout();
+                    navigate('/login');
+                  } catch (error) {
+                    console.error("Logout failed:", error);
+                  }
+                }}
+                size="sm"
+              >
+                <ApperIcon name="LogOut" size={16} className="mr-2" />
+                Logout
+              </Button>
             </nav>
 
             {/* Cart Icon */}
@@ -86,7 +102,7 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
 
       {/* Mobile Navigation */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 z-50">
-        <div className="flex items-center justify-around py-2">
+<div className="flex items-center justify-around py-2">
           {navItems.map((item) => (
             <Button
               key={item.path}
@@ -100,6 +116,22 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
               <span className="text-xs mt-1">{item.label}</span>
             </Button>
           ))}
+          <Button
+            variant="ghost"
+            onClick={async () => {
+              try {
+                const { ApperUI } = window.ApperSDK;
+                await ApperUI.logout();
+                navigate('/login');
+              } catch (error) {
+                console.error("Logout failed:", error);
+              }
+            }}
+            className="flex flex-col items-center p-3 text-gray-600"
+          >
+            <ApperIcon name="LogOut" size={20} />
+            <span className="text-xs mt-1">Logout</span>
+          </Button>
           <Button
             variant="ghost"
             onClick={() => navigate("/cart")}
