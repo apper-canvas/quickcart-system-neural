@@ -1,13 +1,15 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "@/layouts/Root";
 import ApperIcon from "@/components/ApperIcon";
-import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
 import SearchBar from "@/components/molecules/SearchBar";
 
 const Header = ({ cartItemCount = 0, onSearch }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { logout } = useAuth();
 
   const navItems = [
 { label: "Home", path: "/", icon: "Home" },
@@ -53,17 +55,9 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
                   {item.label}
                 </Button>
               ))}
-              <Button
+<Button
                 variant="ghost"
-                onClick={async () => {
-                  try {
-                    const { ApperUI } = window.ApperSDK;
-                    await ApperUI.logout();
-                    navigate('/login');
-                  } catch (error) {
-                    console.error("Logout failed:", error);
-                  }
-                }}
+                onClick={logout}
                 size="sm"
               >
                 <ApperIcon name="LogOut" size={16} className="mr-2" />
@@ -118,15 +112,7 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
           ))}
           <Button
             variant="ghost"
-            onClick={async () => {
-              try {
-                const { ApperUI } = window.ApperSDK;
-                await ApperUI.logout();
-                navigate('/login');
-              } catch (error) {
-                console.error("Logout failed:", error);
-              }
-            }}
+onClick={logout}
             className="flex flex-col items-center p-3 text-gray-600"
           >
             <ApperIcon name="LogOut" size={20} />
