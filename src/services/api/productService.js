@@ -41,7 +41,14 @@ export const productService = {
         imageUrl: product.image_url_c,
         inStock: product.in_stock_c,
         price: product.price_c,
-        specifications: product.specifications_c ? JSON.parse(product.specifications_c) : {}
+specifications: product.specifications_c ? (() => {
+          try {
+            return JSON.parse(product.specifications_c);
+          } catch (e) {
+            console.error('Failed to parse specifications JSON:', e);
+            return {};
+          }
+        })() : {}
       }));
     } catch (error) {
       console.error("Error fetching products:", error?.response?.data?.message || error);
@@ -88,7 +95,14 @@ export const productService = {
         imageUrl: product.image_url_c,
         inStock: product.in_stock_c,
         price: product.price_c,
-        specifications: product.specifications_c ? JSON.parse(product.specifications_c) : {}
+specifications: product.specifications_c ? (() => {
+          try {
+            return JSON.parse(product.specifications_c);
+          } catch (e) {
+            console.error('Failed to parse specifications JSON:', e);
+            return {};
+          }
+        })() : {}
       };
     } catch (error) {
       console.error(`Error fetching product ${id}:`, error?.response?.data?.message || error);
@@ -135,7 +149,14 @@ export const productService = {
         imageUrl: product.image_url_c,
         inStock: product.in_stock_c,
         price: product.price_c,
-        specifications: product.specifications_c ? JSON.parse(product.specifications_c) : {}
+specifications: product.specifications_c ? (() => {
+          try {
+            return JSON.parse(product.specifications_c);
+          } catch (e) {
+            console.error('Failed to parse specifications JSON:', e);
+            return {};
+          }
+        })() : {}
       }));
     } catch (error) {
       console.error("Error fetching products by category:", error?.response?.data?.message || error);
@@ -183,7 +204,14 @@ export const productService = {
           imageUrl: product.image_url_c,
           inStock: product.in_stock_c,
           price: product.price_c,
-          specifications: product.specifications_c ? JSON.parse(product.specifications_c) : {}
+specifications: product.specifications_c ? (() => {
+            try {
+              return JSON.parse(product.specifications_c);
+            } catch (e) {
+              console.error('Failed to parse specifications JSON:', e);
+              return {};
+            }
+          })() : {}
         };
       }
 
@@ -235,7 +263,14 @@ export const productService = {
           imageUrl: product.image_url_c,
           inStock: product.in_stock_c,
           price: product.price_c,
-          specifications: product.specifications_c ? JSON.parse(product.specifications_c) : {}
+specifications: product.specifications_c ? (() => {
+            try {
+              return JSON.parse(product.specifications_c);
+            } catch (e) {
+              console.error('Failed to parse specifications JSON:', e);
+              return {};
+            }
+          })() : {}
         };
       }
 
