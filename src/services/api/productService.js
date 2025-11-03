@@ -43,9 +43,22 @@ export const productService = {
         price: product.price_c,
 specifications: product.specifications_c ? (() => {
           try {
+            // Validate specifications_c is a valid string before parsing
+            if (typeof product.specifications_c !== 'string' || !product.specifications_c.trim()) {
+              return {};
+            }
+            
+            // Basic validation to check if it looks like JSON
+            const spec = product.specifications_c.trim();
+            if (!spec.startsWith('{') && !spec.startsWith('[')) {
+              console.error('Specifications data does not appear to be valid JSON format:', spec);
+              return {};
+            }
+            
             return JSON.parse(product.specifications_c);
           } catch (e) {
-            console.error('Failed to parse specifications JSON:', e);
+            console.error('Failed to parse specifications JSON:', e.message);
+            console.error('Malformed specifications data:', product.specifications_c);
             return {};
           }
         })() : {}
@@ -97,9 +110,22 @@ specifications: product.specifications_c ? (() => {
         price: product.price_c,
 specifications: product.specifications_c ? (() => {
           try {
+            // Validate specifications_c is a valid string before parsing
+            if (typeof product.specifications_c !== 'string' || !product.specifications_c.trim()) {
+              return {};
+            }
+            
+            // Basic validation to check if it looks like JSON
+            const spec = product.specifications_c.trim();
+            if (!spec.startsWith('{') && !spec.startsWith('[')) {
+              console.error('Specifications data does not appear to be valid JSON format:', spec);
+              return {};
+            }
+            
             return JSON.parse(product.specifications_c);
           } catch (e) {
-            console.error('Failed to parse specifications JSON:', e);
+            console.error('Failed to parse specifications JSON:', e.message);
+            console.error('Malformed specifications data:', product.specifications_c);
             return {};
           }
         })() : {}
@@ -151,9 +177,22 @@ specifications: product.specifications_c ? (() => {
         price: product.price_c,
 specifications: product.specifications_c ? (() => {
           try {
+            // Validate specifications_c is a valid string before parsing
+            if (typeof product.specifications_c !== 'string' || !product.specifications_c.trim()) {
+              return {};
+            }
+            
+            // Basic validation to check if it looks like JSON
+            const spec = product.specifications_c.trim();
+            if (!spec.startsWith('{') && !spec.startsWith('[')) {
+              console.error('Specifications data does not appear to be valid JSON format:', spec);
+              return {};
+            }
+            
             return JSON.parse(product.specifications_c);
           } catch (e) {
-            console.error('Failed to parse specifications JSON:', e);
+            console.error('Failed to parse specifications JSON:', e.message);
+            console.error('Malformed specifications data:', product.specifications_c);
             return {};
           }
         })() : {}
@@ -206,9 +245,22 @@ specifications: product.specifications_c ? (() => {
           price: product.price_c,
 specifications: product.specifications_c ? (() => {
             try {
+              // Validate specifications_c is a valid string before parsing
+              if (typeof product.specifications_c !== 'string' || !product.specifications_c.trim()) {
+                return {};
+              }
+              
+              // Basic validation to check if it looks like JSON
+              const spec = product.specifications_c.trim();
+              if (!spec.startsWith('{') && !spec.startsWith('[')) {
+                console.error('Specifications data does not appear to be valid JSON format:', spec);
+                return {};
+              }
+              
               return JSON.parse(product.specifications_c);
             } catch (e) {
-              console.error('Failed to parse specifications JSON:', e);
+              console.error('Failed to parse specifications JSON:', e.message);
+              console.error('Malformed specifications data:', product.specifications_c);
               return {};
             }
           })() : {}
@@ -265,9 +317,22 @@ specifications: product.specifications_c ? (() => {
           price: product.price_c,
 specifications: product.specifications_c ? (() => {
             try {
+              // Validate specifications_c is a valid string before parsing
+              if (typeof product.specifications_c !== 'string' || !product.specifications_c.trim()) {
+                return {};
+              }
+              
+              // Basic validation to check if it looks like JSON
+              const spec = product.specifications_c.trim();
+              if (!spec.startsWith('{') && !spec.startsWith('[')) {
+                console.error('Specifications data does not appear to be valid JSON format:', spec);
+                return {};
+              }
+              
               return JSON.parse(product.specifications_c);
             } catch (e) {
-              console.error('Failed to parse specifications JSON:', e);
+              console.error('Failed to parse specifications JSON:', e.message);
+              console.error('Malformed specifications data:', product.specifications_c);
               return {};
             }
           })() : {}
