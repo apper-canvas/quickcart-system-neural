@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Header from "@/components/organisms/Header";
 import ProductGrid from "@/components/organisms/ProductGrid";
 import ProductModal from "@/components/organisms/ProductModal";
 import CategoryFilter from "@/components/molecules/CategoryFilter";
@@ -135,6 +136,10 @@ const handleViewDetails = (product) => {
 
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
+      <Header 
+        cartItemCount={cartItemCount}
+        onSearch={handleSearch}
+      />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
