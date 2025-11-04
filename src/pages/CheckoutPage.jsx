@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Header from "@/components/organisms/Header";
 import CheckoutForm from "@/components/organisms/CheckoutForm";
 import Card from "@/components/atoms/Card";
 import Loading from "@/components/ui/Loading";
@@ -106,7 +105,6 @@ const CheckoutPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <Header cartItemCount={0} />
         <Loading type="checkout" />
       </div>
     );
@@ -115,7 +113,6 @@ const CheckoutPage = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-background">
-        <Header cartItemCount={0} />
         <Error message={error} onRetry={loadCheckoutData} />
       </div>
     );
@@ -123,7 +120,6 @@ const CheckoutPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)} />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">

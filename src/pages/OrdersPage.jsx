@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "@/components/organisms/Header";
 import Card from "@/components/atoms/Card";
 import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
@@ -79,7 +78,6 @@ const OrdersPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background pb-20 md:pb-0">
-        <Header cartItemCount={cartItemCount} />
         <Loading />
       </div>
     );
@@ -88,7 +86,6 @@ const OrdersPage = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-background pb-20 md:pb-0">
-        <Header cartItemCount={cartItemCount} />
         <Error message={error} onRetry={loadOrders} />
       </div>
     );
@@ -97,7 +94,6 @@ const OrdersPage = () => {
   if (orders.length === 0) {
     return (
       <div className="min-h-screen bg-background pb-20 md:pb-0">
-        <Header cartItemCount={cartItemCount} />
         <Empty
           title="No orders yet"
           message="You haven't placed any orders yet. Start shopping to see your order history here!"
@@ -111,7 +107,6 @@ const OrdersPage = () => {
 
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
-      <Header cartItemCount={cartItemCount} />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
