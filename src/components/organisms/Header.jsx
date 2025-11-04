@@ -55,7 +55,7 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
                   {item.label}
                 </Button>
               ))}
-<Button
+              <Button
                 variant="ghost"
                 onClick={logout}
                 size="sm"
@@ -112,7 +112,7 @@ const Header = ({ cartItemCount = 0, onSearch }) => {
           ))}
           <Button
             variant="ghost"
-onClick={logout}
+            onClick={logout}
             className="flex flex-col items-center p-3 text-gray-600"
           >
             <ApperIcon name="LogOut" size={20} />
