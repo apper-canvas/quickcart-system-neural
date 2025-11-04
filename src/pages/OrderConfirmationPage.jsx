@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Header from "@/components/organisms/Header";
 import Card from "@/components/atoms/Card";
 import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
@@ -45,7 +44,6 @@ const OrderConfirmationPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <Header cartItemCount={0} />
         <Loading />
       </div>
     );
@@ -54,7 +52,6 @@ const OrderConfirmationPage = () => {
   if (error || !order) {
     return (
       <div className="min-h-screen bg-background">
-        <Header cartItemCount={0} />
         <Error 
           message="Order not found or failed to load order details" 
           onRetry={() => navigate("/orders")} 
@@ -68,7 +65,6 @@ const OrderConfirmationPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartItemCount={0} />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Success Header */}

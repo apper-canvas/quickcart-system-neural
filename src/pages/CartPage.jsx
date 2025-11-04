@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Header from "@/components/organisms/Header";
 import CartItem from "@/components/molecules/CartItem";
 import CartSummary from "@/components/organisms/CartSummary";
 import Loading from "@/components/ui/Loading";
@@ -72,7 +71,6 @@ const CartPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background pb-20 md:pb-0">
-        <Header cartItemCount={0} />
         <Loading />
       </div>
     );
@@ -81,7 +79,6 @@ const CartPage = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-background pb-20 md:pb-0">
-        <Header cartItemCount={0} />
         <Error message={error} onRetry={loadCart} />
       </div>
     );
@@ -90,7 +87,6 @@ const CartPage = () => {
   if (cartItems.length === 0) {
     return (
       <div className="min-h-screen bg-background pb-20 md:pb-0">
-        <Header cartItemCount={0} />
         <Empty
           title="Your cart is empty"
           message="Looks like you haven't added any items to your cart yet. Start shopping to fill it up!"
@@ -104,7 +100,6 @@ const CartPage = () => {
 
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
-      <Header cartItemCount={cartItemCount} />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
